@@ -5,7 +5,7 @@ import Footer from "../components/Footer"; // Adjust the import path as needed
 const CancellationPolicy = () => {
   return (
     <>
-      <Navbar className="bg-white shadow-md" />
+      <Navbar />
       <div className="relative bg-gray-50 py-16">
         <div className="container mx-auto px-4">
           <div className="text-center">
