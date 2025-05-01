@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { RefObject, useRef } from "react";
 import {
   Server,
   Database,
@@ -62,7 +62,9 @@ const CourseCard = ({
 
 const CourseSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { threshold: 0.1 });
+  const isInView = useInView(sectionRef as RefObject<Element>, {
+    threshold: 0.1,
+  });
 
   const courses = [
     {

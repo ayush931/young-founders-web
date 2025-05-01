@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { RefObject, useRef } from "react";
 import {
   TrendingUp,
   Users,
@@ -14,7 +14,9 @@ import EntrepreneurForm from "@/app/components/EntrepreneurForm";
 
 const EntrepreneurSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { threshold: 0.1 });
+  const isInView = useInView(sectionRef as RefObject<Element>, {
+    threshold: 0.1,
+  });
 
   const resources = [
     {
