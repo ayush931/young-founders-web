@@ -1,4 +1,4 @@
-import { useState, useEffect, RefObject } from 'react';
+import { useState, useEffect, RefObject } from "react";
 
 interface InViewOptions {
   threshold?: number;
@@ -12,7 +12,8 @@ export function useInView(
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
-    if (!ref.current) return;
+    const currentRef = ref.current;
+    if (!currentRef) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -20,15 +21,15 @@ export function useInView(
       },
       {
         threshold: options.threshold || 0,
-        rootMargin: options.rootMargin || '0px',
+        rootMargin: options.rootMargin || "0px",
       }
     );
 
-    observer.observe(ref.current);
+    observer.observe(currentRef);
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, [ref, options.threshold, options.rootMargin]);

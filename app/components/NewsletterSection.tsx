@@ -1,4 +1,4 @@
-import { Send } from 'lucide-react';
+import { Send } from "lucide-react";
 
 const NewsletterSection = () => {
   return (
@@ -8,18 +8,22 @@ const NewsletterSection = () => {
           {/* Decorative elements */}
           <div className="absolute left-0 top-0 w-32 h-32 bg-orange-100 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
           <div className="absolute right-0 bottom-0 w-40 h-40 bg-orange-100 rounded-full transform translate-x-1/3 translate-y-1/3"></div>
-          
+
           <div className="md:w-1/2 mb-8 md:mb-0 relative z-10">
-            <h2 className="text-3xl font-bold text-black mb-4">Stay Updated with Founder Resources</h2>
+            <h2 className="text-3xl font-bold text-black mb-4">
+              Stay Updated with Founder Resources
+            </h2>
             <p className="text-gray-600 mb-6">
-              Join our newsletter for exclusive content, founder stories, and early access to new courses. We &apos;ll help you stay ahead in your entrepreneurial journey.
+              Join our newsletter for exclusive content, founder stories, and
+              early access to new courses. We&#39;ll help you stay ahead in your
+              entrepreneurial journey.
             </p>
             <ul className="space-y-2">
               {[
                 "Weekly technical insights for founders",
                 "Funding opportunities and investor connections",
                 "Free resources and templates",
-                "Early access to new courses and workshops"
+                "Early access to new courses and workshops",
               ].map((item, index) => (
                 <li key={index} className="flex items-center text-gray-700">
                   <span className="w-2 h-2 bg-[#f57d56] rounded-full mr-2"></span>
@@ -28,13 +32,18 @@ const NewsletterSection = () => {
               ))}
             </ul>
           </div>
-          
+
           <div className="md:w-5/12 relative z-10">
             <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
-              <h3 className="text-xl font-bold text-black mb-4">Subscribe to Our Newsletter</h3>
+              <h3 className="text-xl font-bold text-black mb-4">
+                Subscribe to Our Newsletter
+              </h3>
               <form className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Full Name
                   </label>
                   <input
@@ -45,7 +54,10 @@ const NewsletterSection = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Email Address
                   </label>
                   <input
@@ -62,7 +74,8 @@ const NewsletterSection = () => {
                       className="w-4 h-4 text-[#f57d56] border-gray-300 rounded focus:ring-[#f57d56]"
                     />
                     <span className="ml-2 text-sm text-gray-600">
-                      I agree to receive emails about relevant courses and resources
+                      I agree to receive emails about relevant courses and
+                      resources
                     </span>
                   </label>
                 </div>
