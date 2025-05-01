@@ -12,7 +12,7 @@ const NewsletterSection = () => {
           <div className="md:w-1/2 mb-8 md:mb-0 relative z-10">
             <h2 className="text-3xl font-bold text-black mb-4">Stay Updated with Founder Resources</h2>
             <p className="text-gray-600 mb-6">
-              Join our newsletter for exclusive content, founder stories, and early access to new courses. We'll help you stay ahead in your entrepreneurial journey.
+              Join our newsletter for exclusive content, founder stories, and early access to new courses. We &apos;ll help you stay ahead in your entrepreneurial journey.
             </p>
             <ul className="space-y-2">
               {[
