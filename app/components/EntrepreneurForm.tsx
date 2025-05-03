@@ -1,76 +1,89 @@
-import { useState, FormEvent } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useState, FormEvent } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface EntrepreneurFormProps {
   title?: string;
+  courses: string[]; // Add courses prop
 }
 
-const EntrepreneurForm = ({ title = "Apply Now" }: EntrepreneurFormProps) => {
+const EntrepreneurForm = ({
+  title = "Apply Now",
+  courses = [], // Provide a default empty array for courses
+}: EntrepreneurFormProps) => {
   // Form state
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    interest: ''
+    name: "",
+    email: "",
+    phone: "",
+    interest: "",
   });
-  
+
   // Form submission status
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
   // Handle input changes
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   // Handle form submission
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    
+
     // Validate form
-    if (!formData.name || !formData.email || !formData.phone || !formData.interest) {
-      toast.error('Please fill out all fields');
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.interest
+    ) {
+      toast.error("Please fill out all fields");
       return;
     }
 
     // Set loading state
-    setStatus('loading');
-    
+    setStatus("loading");
+
     try {
       // Send form data to API
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
 
       const data = await response.json();
-      
+
       if (response.ok) {
         // Success
-        setStatus('success');
-        toast.success('Information request submitted successfully!');
-        
+        setStatus("success");
+        toast.success("Information request submitted successfully!");
+
         // Reset form
         setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          interest: ''
+          name: "",
+          email: "",
+          phone: "",
+          interest: "",
         });
       } else {
         // Error from server
-        setStatus('error');
-        toast.error(data.message || 'Failed to submit form');
+        setStatus("error");
+        toast.error(data.message || "Failed to submit form");
       }
     } catch (error) {
       // Client-side error
-      console.error('Error submitting form:', error);
-      setStatus('error');
-      toast.error('Something went wrong. Please try again later.');
+      console.error("Error submitting form:", error);
+      setStatus("error");
+      toast.error("Something went wrong. Please try again later.");
     }
   };
 
@@ -111,10 +124,11 @@ const EntrepreneurForm = ({ title = "Apply Now" }: EntrepreneurFormProps) => {
           <option value="" disabled>
             Select Training Interest
           </option>
-          <option value="Startup Fundamentals">Startup Fundamentals</option>
-          <option value="Marketing Strategies">Marketing Strategies</option>
-          <option value="Funding and Investment">Funding and Investment</option>
-          <option value="Networking and Partnerships">Networking and Partnerships</option>
+          {courses.map((course, index) => (
+            <option key={index} value={course}>
+              {course}
+            </option>
+          ))}
         </select>
         <button
           type="submit"

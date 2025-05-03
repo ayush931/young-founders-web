@@ -1,12 +1,13 @@
 import Link from "next/link";
 import {
-  GraduationCap,
   Github,
   Twitter,
   Linkedin,
   Youtube,
   Mail,
+  Phone,
 } from "lucide-react";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -15,10 +16,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <div className="flex items-center mb-6">
-              <GraduationCap className="text-[#f57d56] mr-2" size={24} />
-              <span className="font-bold text-xl">
-                Young<span className="text-[#f57d56]">Founder</span>
-              </span>
+              <Link href="#home">
+                <span className="font-bold text-xl text-black">
+                  <Image src="/footer.jpg" alt="Logo" width={150} height={150} />
+                </span>
+              </Link>
             </div>
             <p className="text-gray-400 mb-6">
               Empowering the next generation of technical founders with the
@@ -61,14 +63,7 @@ const Footer = () => {
                 "Funding and Investment",
                 "Networking and Partnerships",
               ].map((item, index) => (
-                <li key={index}>
-                  <Link
-                    href="#"
-                    className="text-gray-400 hover:text-[#f57d56] transition-colors duration-300"
-                  >
-                    {item}
-                  </Link>
-                </li>
+                <li key={index}>{item}</li>
               ))}
             </ul>
           </div>
@@ -84,14 +79,7 @@ const Footer = () => {
                 "Founder Success Program",
                 "Mentorship Opportunities",
               ].map((item, index) => (
-                <li key={index}>
-                  <Link
-                    href="#"
-                    className="text-gray-400 hover:text-[#f57d56] transition-colors duration-300"
-                  >
-                    {item}
-                  </Link>
-                </li>
+                <li key={index}>{item}</li>
               ))}
             </ul>
           </div>
@@ -102,11 +90,17 @@ const Footer = () => {
               <li className="flex items-start">
                 <Mail className="text-[#f57d56] mr-2 mt-1" size={16} />
                 <Link
-                  href="mailto:info@youngfounder.com"
+                  href="mailto:ayushkumar9315983@gmail.com"
                   className="text-gray-400 hover:text-[#f57d56] transition-colors duration-300"
                 >
-                  info@youngfounder.com
+                  ayushkumar9315983@gmail.com
                 </Link>
+              </li>
+              <li className="flex items-start">
+                <Phone className="text-[#f57d56] mr-2 mt-1" size={16} />
+                <div className="text-gray-400 hover:text-[#f57d56] transition-colors duration-300">
+                  7070472634
+                </div>
               </li>
               <li>
                 <Link

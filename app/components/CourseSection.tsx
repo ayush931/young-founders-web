@@ -1,6 +1,6 @@
 "use client";
 
-import { RefObject, useRef } from "react";
+import { RefObject, useRef, useState } from "react";
 import {
   Server,
   Database,
@@ -10,6 +10,70 @@ import {
   FileCode,
 } from "lucide-react";
 import { useInView } from "../hooks/useInView"; // Adjusted import path for Next.js conventions
+import EntrepreneurForm from "./EntrepreneurForm"; // Import the form component
+
+// Modal component
+interface Course {
+  title: string;
+  description: string;
+  level: string;
+  duration: string;
+}
+
+const CourseModal = ({
+  course,
+  onClose,
+}: {
+  course: Course | null;
+  onClose: () => void;
+}) => {
+  if (!course) return null;
+
+  const courseOptions = [
+    "JavaScript Fundamentals",
+    "Frontend Development",
+    "Backend Development",
+    "Database Management",
+    "Full Stack Development",
+    "HTML & CSS Mastery",
+  ];
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-lg">
+        <div className="flex justify-between items-center mb-4">
+          <h3 className="text-xl font-bold text-black">{course.title}</h3>
+          <button
+            className="text-gray-500 hover:text-gray-700"
+            onClick={onClose}
+          >
+            ✕
+          </button>
+        </div>
+        <p className="text-gray-600 mb-4">{course.description}</p>
+        <div className="flex space-x-4 mb-4">
+          <span className="px-3 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">
+            {course.level}
+          </span>
+          <span className="px-3 py-1 bg-gray-100 text-gray-800 text-xs rounded-full">
+            {course.duration}
+          </span>
+        </div>
+        {/* Add EntrepreneurForm below the course details */}
+        <EntrepreneurForm
+          title="Request More Information"
+          courses={courseOptions}
+        />
+        <button
+          className="w-full bg-black hover:bg-gray-800 text-white font-medium py-2 rounded-md transition-colors duration-300 mt-4"
+          onClick={onClose}
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  );
+};
 
 // Course card component
 interface CourseCardProps {
@@ -20,6 +84,7 @@ interface CourseCardProps {
   duration: string;
   delay: number;
   inView: boolean;
+  onLearnMore: () => void;
 }
 
 const CourseCard = ({
@@ -30,6 +95,7 @@ const CourseCard = ({
   duration,
   delay,
   inView,
+  onLearnMore,
 }: CourseCardProps) => {
   return (
     <div
@@ -52,19 +118,24 @@ const CourseCard = ({
         </div>
         <h3 className="text-xl font-bold mb-2 text-black">{title}</h3>
         <p className="text-gray-600 mb-4 text-sm">{description}</p>
-        <button className="w-full bg-black hover:bg-gray-800 text-white font-medium py-2 rounded-md transition-colors duration-300">
-          Purchase course
+        <button
+          className="w-full bg-black hover:bg-gray-800 text-white font-medium py-2 rounded-md transition-colors duration-300"
+          onClick={onLearnMore}
+        >
+          Learn more
         </button>
       </div>
     </div>
   );
 };
-
+  // Removed duplicate useState declaration
 const CourseSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef as RefObject<Element>, {
     threshold: 0.1,
   });
+
+  const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
 
   const courses = [
     {
@@ -145,6 +216,7 @@ const CourseSection = () => {
               duration={course.duration}
               delay={index * 100}
               inView={isInView}
+              onLearnMore={() => setSelectedCourse(course)}
             />
           ))}
         </div>
@@ -155,6 +227,11 @@ const CourseSection = () => {
           </button>
         </div>
       </div>
+
+      <CourseModal
+        course={selectedCourse}
+        onClose={() => setSelectedCourse(null)}
+      />
     </section>
   );
 };

@@ -150,7 +150,7 @@ const EntrepreneurSection = () => {
                 {[
                   "Learn the real steps to build a startup from scratch",
                   "Understand MVP, funding, marketing & mistakes to avoid",
-                  "Get a Free Startup Checklist + Toolkit worth ₹499",
+                  "Get a Free Startup Checklist + Toolkit worth ₹9999",
                   "Limited Seats | Live Zoom Call | ₹49 Only",
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-start">
@@ -162,7 +162,10 @@ const EntrepreneurSection = () => {
             </div>
 
             <div className="md:w-1/3">
-              <EntrepreneurForm title="Apply Now" />
+              <EntrepreneurForm
+                title="Apply Now"
+                courses={resources.map((resource) => resource.title)} // Pass resource titles as courses
+              />
             </div>
           </div>
         </div>
