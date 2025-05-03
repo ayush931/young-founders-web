@@ -1,6 +1,6 @@
 "use client";
 
-import { RefObject, useRef } from "react";
+import { RefObject, useRef, useState } from "react";
 import {
   TrendingUp,
   Users,
@@ -17,6 +17,8 @@ const EntrepreneurSection = () => {
   const isInView = useInView(sectionRef as RefObject<Element>, {
     threshold: 0.1,
   });
+
+  const [modalOpen, setModalOpen] = useState(false);
 
   const resources = [
     {
@@ -122,13 +124,50 @@ const EntrepreneurSection = () => {
                   ))}
                 </div>
 
-                <button className="mt-6 w-full bg-transparent hover:bg-[#f57d56] border border-[#f57d56] text-[#f57d56] hover:text-white font-medium py-2 rounded-md transition-colors duration-300">
+                <button
+                  className="mt-6 w-full bg-transparent hover:bg-[#f57d56] border border-[#f57d56] text-[#f57d56] hover:text-white font-medium py-2 rounded-md transition-colors duration-300"
+                  onClick={() => setModalOpen(true)}
+                >
                   Join Now
                 </button>
               </div>
             </div>
           ))}
         </div>
+
+        {/* Modal */}
+        {modalOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60">
+            <div className="bg-white rounded-lg shadow-lg p-8 max-w-sm w-full text-center">
+              <h3 className="text-xl font-bold mb-4 text-gray-900">
+                Enroll for 2 hr Basic Training
+              </h3>
+              <p className="mb-6 text-gray-700">
+                You have to pay{" "}
+                <span className="font-semibold text-[#f57d56]">₹49</span> to
+                enroll for 2 hr basic training.
+              </p>
+              <div className="flex flex-col gap-3">
+                <button
+                  className="bg-[#f57d56] text-white font-medium py-2 rounded-md hover:bg-[#e96c3c] transition-colors"
+                  onClick={() => {
+                    setModalOpen(false);
+                    window.location.href =
+                      "https://payments.cashfree.com/forms/youngfounder";
+                  }}
+                >
+                  Proceed to Payment
+                </button>
+                <button
+                  className="bg-gray-200 text-gray-700 font-medium py-2 rounded-md hover:bg-gray-300 transition-colors"
+                  onClick={() => setModalOpen(false)}
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
 
         <div className="mt-16 bg-gray-900 rounded-lg p-8 overflow-hidden relative">
           <div className="absolute right-0 top-0 w-64 h-64 bg-[#f57d56] opacity-5 rounded-full transform translate-x-1/4 -translate-y-1/4"></div>
