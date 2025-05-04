@@ -153,7 +153,7 @@ const EntrepreneurSection = () => {
                   onClick={() => {
                     setModalOpen(false);
                     window.location.href =
-                      "https://payments.cashfree.com/forms/youngfounder";
+                      process.env.NEXT_PUBLIC_PAYMENT_URI || "Not available";
                   }}
                 >
                   Proceed to Payment
