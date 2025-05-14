@@ -36,15 +36,15 @@ const ContactUs = () => {
                 Patna, Bihar, PIN: 800020
               </li>
               <li>
-                <strong>Telephone No:</strong> 9646534433
+                <strong>Telephone No:</strong> 7070472634
               </li>
               <li>
                 <strong>E-Mail ID:</strong>{" "}
                 <a
-                  href="mailto:abhishek@shopu.live"
+                  href="mailto:youngfounder8@gmail.com"
                   className="text-blue-500 underline"
                 >
-                  abhishek@shopu.live
+                  youngfounder8@gmail.com
                 </a>
               </li>
             </ul>
