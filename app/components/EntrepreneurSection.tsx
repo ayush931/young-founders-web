@@ -22,7 +22,7 @@ const EntrepreneurSection = () => {
 
   const resources = [
     {
-      title: "Start a Startup for Just ₹49",
+      title: "Start a Startup for Just ₹99",
       description:
         "Want to Start Your Own Startup But Don't Know Where to Begin? Join our Live 60-Minute Session.",
       icon: <Users size={24} className="text-[#f57d56]" />,
@@ -42,7 +42,7 @@ const EntrepreneurSection = () => {
         "Validate your idea",
         "Get your first users",
         "Build real traction",
-        "Only ₹49 to join",
+        "Only ₹99 to join",
       ],
     },
     {
@@ -58,9 +58,9 @@ const EntrepreneurSection = () => {
       ],
     },
     {
-      title: "From ₹49 to a Full Startup",
+      title: "From ₹99 to a Full Startup",
       description:
-        "What if ₹49 Could Be the Start of Your Startup Journey? Build your startup blueprint.",
+        "What if ₹99 Could Be the Start of Your Startup Journey? Build your startup blueprint.",
       icon: <PieChart size={24} className="text-[#f57d56]" />,
       items: [
         "Start with ₹0",
@@ -95,11 +95,10 @@ const EntrepreneurSection = () => {
           {resources.map((resource, index) => (
             <div
               key={index}
-              className={`bg-gray-900 rounded-lg p-6 border-l-4 border-[#f57d56] transition-all duration-700 ease-out transform ${
-                isInView
+              className={`bg-gray-900 rounded-lg p-6 border-l-4 border-[#f57d56] transition-all duration-700 ease-out transform ${isInView
                   ? "translate-y-0 opacity-100"
                   : "translate-y-12 opacity-0"
-              }`}
+                }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               <div className="flex items-start mb-4">
@@ -144,7 +143,7 @@ const EntrepreneurSection = () => {
               </h3>
               <p className="mb-6 text-gray-700">
                 You have to pay{" "}
-                <span className="font-semibold text-[#f57d56]">₹49</span> to
+                <span className="font-semibold text-[#f57d56]">₹99</span> to
                 enroll for 2 hr basic training.
               </p>
               <div className="flex flex-col gap-3">
@@ -181,7 +180,7 @@ const EntrepreneurSection = () => {
                 </h3>
               </div>
               <p className="text-gray-400 mb-6">
-                Join our live 60-minute session for just ₹49 and learn
+                Join our live 60-minute session for just ₹99 and learn
                 everything you need to kickstart your entrepreneurial journey.
                 Perfect for students, side hustlers, and early-stage founders.
               </p>
@@ -190,7 +189,7 @@ const EntrepreneurSection = () => {
                   "Learn the real steps to build a startup from scratch",
                   "Understand MVP, funding, marketing & mistakes to avoid",
                   "Get a Free Startup Checklist + Toolkit worth ₹9999",
-                  "Limited Seats | Live Zoom Call | ₹49 Only",
+                  "Limited Seats | Live Zoom Call | ₹99 Only",
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-start">
                     <Lightbulb className="text-[#f57d56] mr-2 mt-1" size={16} />
