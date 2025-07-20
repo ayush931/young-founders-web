@@ -36,6 +36,9 @@ const CourseModal = ({
     "Database Management",
     "Full Stack Development",
     "HTML & CSS Mastery",
+    "Java Backend Development",
+    "Flutter Mobile Development",
+    "React Native Mobile Development"
   ];
 
   return (
@@ -99,9 +102,8 @@ const CourseCard = ({
 }: CourseCardProps) => {
   return (
     <div
-      className={`bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-[#f57d56] transition-all duration-700 ease-out transform ${
-        inView ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
-      }`}
+      className={`bg-white rounded-lg shadow-lg overflow-hidden border-t-4 border-[#f57d56] transition-all duration-700 ease-out transform ${inView ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
+        }`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div className="p-6">
@@ -128,7 +130,7 @@ const CourseCard = ({
     </div>
   );
 };
-  // Removed duplicate useState declaration
+// Removed duplicate useState declaration
 const CourseSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef as RefObject<Element>, {
@@ -144,7 +146,7 @@ const CourseSection = () => {
         "Master the building blocks of modern web development with comprehensive JavaScript training.",
       icon: <CoffeeIcon size={24} className="text-[#f57d56]" />,
       level: "Beginner",
-      duration: "8 weeks",
+      duration: "4 months",
     },
     {
       title: "Frontend Development",
@@ -152,7 +154,7 @@ const CourseSection = () => {
         "Learn HTML, CSS, React, and more to create stunning and responsive user interfaces.",
       icon: <Layers size={24} className="text-[#f57d56]" />,
       level: "Intermediate",
-      duration: "10 weeks",
+      duration: "4 months",
     },
     {
       title: "Backend Development",
@@ -160,7 +162,7 @@ const CourseSection = () => {
         "Build robust server-side applications with Node.js, Express, and RESTful APIs.",
       icon: <Server size={24} className="text-[#f57d56]" />,
       level: "Intermediate",
-      duration: "12 weeks",
+      duration: "6 months",
     },
     {
       title: "Database Management",
@@ -168,15 +170,15 @@ const CourseSection = () => {
         "Learn SQL and NoSQL database design, optimization, and integration with applications.",
       icon: <Database size={24} className="text-[#f57d56]" />,
       level: "Intermediate",
-      duration: "8 weeks",
+      duration: "2 months",
     },
     {
       title: "Full Stack Development",
       description:
         "Combine frontend and backend skills to build complete web applications from scratch.",
       icon: <Code size={24} className="text-[#f57d56]" />,
-      level: "Advanced",
-      duration: "16 weeks",
+      level: "Beginner to Advanced",
+      duration: "9 months",
     },
     {
       title: "HTML & CSS Mastery",
@@ -184,7 +186,31 @@ const CourseSection = () => {
         "Build the foundation of web development with semantic HTML and modern CSS techniques.",
       icon: <FileCode size={24} className="text-[#f57d56]" />,
       level: "Beginner",
-      duration: "6 weeks",
+      duration: "1 months",
+    },
+    {
+      title: "Java Backend Development",
+      description:
+        "Master enterprise-grade backend development with Java, Spring Boot, and microservices architecture.",
+      icon: <FileCode size={24} className="text-[#f57d56]" />,
+      level: "Beginner",
+      duration: "6 months",
+    },
+    {
+      title: "Flutter Mobile Development",
+      description:
+        "Create beautiful, natively compiled mobile applications for iOS and Android using Google's Flutter framework.",
+      icon: <FileCode size={24} className="text-[#f57d56]" />,
+      level: "Beginner",
+      duration: "4 months",
+    },
+    {
+      title: "React Native Mobile Development",
+      description:
+        "Build cross-platform mobile apps using React Native, leveraging your web development skills for mobile.",
+      icon: <FileCode size={24} className="text-[#f57d56]" />,
+      level: "Beginner",
+      duration: "2 months",
     },
   ];
 
@@ -222,9 +248,9 @@ const CourseSection = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <button className="bg-[#f57d56] hover:bg-[#e06a47] text-white px-8 py-3 rounded-md font-medium transition-colors duration-300 shadow-md hover:shadow-lg">
+          {/* <button className="bg-[#f57d56] hover:bg-[#e06a47] text-white px-8 py-3 rounded-md font-medium transition-colors duration-300 shadow-md hover:shadow-lg">
             View All Courses
-          </button>
+          </button> */}
         </div>
       </div>
 

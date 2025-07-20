@@ -18,7 +18,7 @@ const Footer = () => {
             <div className="flex items-center mb-6">
               <Link href="#home">
                 <span className="font-bold text-xl text-black">
-                  <Image src="/footer.jpg" alt="Logo" width={150} height={150} />
+                  <Image src="/logo.svg" alt="Logo" width={150} height={150} />
                 </span>
               </Link>
             </div>
@@ -93,7 +93,7 @@ const Footer = () => {
                   href="mailto:youngfounder8@gmail.com"
                   className="text-gray-400 hover:text-[#f57d56] transition-colors duration-300"
                 >
-                  youngfounder8@gmail.com
+                  stackskills.in@gmail.com
                 </Link>
               </li>
               <li className="flex items-start">
@@ -148,7 +148,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 pt-8 mt-8 text-center">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} YoungFounder. All rights reserved.
+            © {new Date().getFullYear()} Stack Skills. All rights reserved.
           </p>
           <p className="text-gray-600 text-xs mt-2">
             Designed for aspiring technical entrepreneurs. Building the future,

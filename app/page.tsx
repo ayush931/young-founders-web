@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Young Founder</title>
+        <title>Stack Skills</title>
         <meta
           name="description"
           content="Empowering young entrepreneurs with courses and resources."
